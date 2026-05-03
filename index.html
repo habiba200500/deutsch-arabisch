@@ -20,120 +20,135 @@
     </div>
 
     <main class="shell">
-      <div class="card" id="swipe-zone">
-        <div class="lang-rail">
-          <span class="lang-pill" id="lbl-source">العربية</span>
-          <button
-            type="button"
-            class="swap-btn"
-            id="swap-btn"
-            aria-label="تبديل اللغات"
-            title="تبديل اللغات"
-          >
-            <span class="swap-ico" aria-hidden="true">⇄</span>
-          </button>
-          <span class="lang-pill lang-pill--muted" id="lbl-target">Deutsch</span>
-        </div>
+      <section class="section section--translator" aria-labelledby="translator-heading">
+        <h2 id="translator-heading" class="section-heading">مترجم عربي ↔ ألماني</h2>
+        <div class="card" id="swipe-zone">
+          <div class="lang-rail">
+            <span class="lang-pill" id="lbl-source">العربية</span>
+            <button
+              type="button"
+              class="swap-btn"
+              id="swap-btn"
+              aria-label="تبديل اللغات"
+              title="تبديل اللغات"
+            >
+              <span class="swap-ico" aria-hidden="true">⇄</span>
+            </button>
+            <span class="lang-pill lang-pill--muted" id="lbl-target">Deutsch</span>
+          </div>
 
-        <div class="panes">
-          <section class="pane pane-source">
-            <div class="pane-top">
-              <span class="pane-label">من</span>
-              <button
-                type="button"
-                class="btn-icon"
-                id="speak-source"
-                disabled
-                aria-label="نطق النص المكتوب"
-                title="نطق المصدر"
-              >
-                <svg class="ico ico-speaker" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M11 5L6 9H2v6h4l5 4V5z"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15.54 8.46a5 5 0 0 1 0 7.07"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M18.36 5.64a9 9 0 0 1 0 12.72"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="input-wrap" id="input-shell">
-              <textarea
-                id="source-input"
-                class="pane-box"
-                rows="5"
-                autocomplete="off"
-                spellcheck="false"
-                aria-autocomplete="list"
-                aria-controls="suggestions"
-                aria-expanded="false"
-                placeholder="اكتب الكلمة…"
-              ></textarea>
-              <div
-                id="suggestions"
-                class="suggestions"
-                role="listbox"
-                hidden
-                aria-label="اقتراحات"
-              ></div>
-            </div>
-          </section>
-
-          <section class="pane pane-target">
-            <div class="pane-top">
-              <span class="pane-label">إلى</span>
-              <button
-                type="button"
-                class="btn-icon"
-                id="speak-target"
-                disabled
-                aria-label="نطق الترجمة"
-                title="نطق الترجمة"
-              >
-                <svg class="ico ico-speaker" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M11 5L6 9H2v6h4l5 4V5z"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15.54 8.46a5 5 0 0 1 0 7.07"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M18.36 5.64a9 9 0 0 1 0 12.72"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="input-wrap">
-              <div class="pane-box pane-box--out" aria-readonly="true">
-                <p id="target-output" class="target-output" dir="ltr" aria-live="polite">
-                  —
-                </p>
+          <div class="panes">
+            <section class="pane pane-source">
+              <div class="pane-top">
+                <span class="pane-label">من</span>
+                <button
+                  type="button"
+                  class="btn-icon"
+                  id="speak-source"
+                  disabled
+                  aria-label="نطق النص المكتوب"
+                  title="نطق المصدر"
+                >
+                  <svg class="ico ico-speaker" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M11 5L6 9H2v6h4l5 4V5z"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M15.54 8.46a5 5 0 0 1 0 7.07"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M18.36 5.64a9 9 0 0 1 0 12.72"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
               </div>
-            </div>
-          </section>
+              <div class="input-wrap" id="input-shell">
+                <textarea
+                  id="source-input"
+                  class="pane-box"
+                  rows="5"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-autocomplete="list"
+                  aria-controls="suggestions"
+                  aria-expanded="false"
+                  placeholder="اكتب الكلمة…"
+                ></textarea>
+                <div
+                  id="suggestions"
+                  class="suggestions"
+                  role="listbox"
+                  hidden
+                  aria-label="اقتراحات"
+                ></div>
+              </div>
+            </section>
+
+            <section class="pane pane-target">
+              <div class="pane-top">
+                <span class="pane-label">إلى</span>
+                <button
+                  type="button"
+                  class="btn-icon"
+                  id="speak-target"
+                  disabled
+                  aria-label="نطق الترجمة"
+                  title="نطق الترجمة"
+                >
+                  <svg class="ico ico-speaker" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M11 5L6 9H2v6h4l5 4V5z"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M15.54 8.46a5 5 0 0 1 0 7.07"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M18.36 5.64a9 9 0 0 1 0 12.72"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="input-wrap">
+                <div class="pane-box pane-box--out" aria-readonly="true">
+                  <p id="target-output" class="target-output" dir="ltr" aria-live="polite">
+                    —
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section class="section section--team" aria-labelledby="team-heading">
+        <h2 id="team-heading" class="section-heading">أعضاء الفريق</h2>
+        <ul class="team-list">
+          <li class="team-member">حبيبة علاء الدين محمد</li>
+          <li class="team-member">رحمه محمد صلاح</li>
+          <li class="team-member">اريچ حمدي</li>
+          <li class="team-member">چوليانا عماد مايز</li>
+          <li class="team-member">راشي رؤوف صليب</li>
+          <li class="team-member">امينه هاني احمد</li>
+        </ul>
+      </section>
     </main>
 
     <script src="script.js"></script>
