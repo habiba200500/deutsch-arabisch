@@ -198,9 +198,13 @@ function foldArabic(s) {
 
 function foldGerman(s) {
   return s
+    .toLowerCase()
+    .replace(/ß/g, "ss")
+    .replace(/ä/g, "a")
+    .replace(/ö/g, "o")
+    .replace(/ü/g, "u")
     .normalize("NFD")
-    .replace(/\p{M}/gu, "")
-    .toLowerCase();
+    .replace(/\p{M}/gu, "");
 }
 
 function findByGerman(query) {
@@ -219,17 +223,27 @@ function findByArabic(query) {
 function getSuggestions(query) {
   const q = query.trim();
   if (!q) return [];
+
   if (sourceLang === "ar") {
     const hits = WORDS.filter((w) =>
-      foldArabic(w.ar).startsWith(foldArabic(q)),
+      foldArabic(w.ar).includes(foldArabic(q))
     );
+
     hits.sort((a, b) =>
-      foldArabic(a.ar).localeCompare(foldArabic(b.ar), "ar"),
+      foldArabic(a.ar).localeCompare(foldArabic(b.ar), "ar")
     );
+
     return hits;
   }
-  const hits = WORDS.filter((w) => foldGerman(w.de).startsWith(foldGerman(q)));
-  hits.sort((a, b) => foldGerman(a.de).localeCompare(foldGerman(b.de), "de"));
+
+  const hits = WORDS.filter((w) =>
+    foldGerman(w.de).includes(foldGerman(q))
+  );
+
+  hits.sort((a, b) =>
+    foldGerman(a.de).localeCompare(foldGerman(b.de), "de")
+  );
+
   return hits;
 }
 
